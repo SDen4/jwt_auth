@@ -1,14 +1,15 @@
 const Router = require('express').Router;
+const userController = require('../controllers/user-controller');
 
 const router = new Router();
 
-router.post('/registration');
-router.post('/login');
-router.post('/logout');
+router.post('/registration', userController.registration);
+router.post('/login', userController.login);
+router.post('/logout', userController.logout);
 
-router.det('/activate/:link');
-router.det('/refresh');
+router.get('/activate/:link', userController.activate);
+router.get('/refresh', userController.refresh);
 
-router.det('/users');
+router.get('/users', userController.getUsers);
 
 module.exports = router;
